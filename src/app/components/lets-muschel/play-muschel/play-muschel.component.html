@@ -1,0 +1,57 @@
+<div class="row mt-5">
+  <div class="col" *ngIf="!boolChoosed">
+    <div class="card animated fadeInUp">
+      <div class="card-header">
+        Oh sag mir:
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Welche Untertanen werden Teil der Ehre?</h5>
+        <div class="input-group mb-3 pt-2">
+          <input type="text" class="form-control" placeholder="Untertane" aria-label="Untertane" [(ngModel)]="nameUntertane"
+            aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="addUntertane()"><i class="fas fa-plus-circle "></i></button>
+          </div>
+        </div>
+        <div class="row p-3" *ngIf="(this.untertanen.length>1)">
+          <button type="button" class="btn btn-success col col-12" (click)="chooseUntertane()">Ooooh wer ist der
+            Auserwählte?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!boolChoosed">
+    <div class="col" *ngIf="(this.untertanen.length>0)">
+      <div class="card animated fadeInUp ">
+        <div class="card-header">
+          Untertanen
+        </div>
+        <div class="card-body text-center">
+          <table class="table table-hover text-center">
+            <thead>
+              <th>Name</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let untertane of this.untertanen; let i = index">
+                <td>{{untertane.Name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col" *ngIf="boolChoosed">
+    <div class="card animated zoomInUp delay ">
+      <div class="card-header">
+        Der Auserwählte
+      </div>
+      <div class="card-body text-center" *ngIf="choosedUntertane!=null">
+        {{choosedUntertane.Name}}
+
+        
+      </div>
+    </div>
+  </div>
+</div>

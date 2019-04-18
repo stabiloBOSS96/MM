@@ -1,0 +1,10 @@
+
+<div class="row justify-content-md-center">
+    <div class="centered" *ngIf="!boolPlay">
+        <button type="button" class="btn btn-success btn-circle cursor" [ngStyle]="{'width':size+'px','height':size+'px'}"  (click)="play()">
+          <i class="fa fa-play"></i> 
+        </button>
+      </div>
+
+      <app-play-muschel *ngIf="boolPlay"></app-play-muschel>
+</div>
